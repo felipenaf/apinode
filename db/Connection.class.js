@@ -7,15 +7,16 @@ class Connection {
             user: "root",
             password: "123"
         });
+
+        this.con.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+        });
     }
 }
 
 var conn = new Connection()
 
-conn.con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-});
 
 conn.con.query("select * from cf_prod.grupo", function (err, result) {
     if (err) throw err;
